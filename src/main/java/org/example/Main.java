@@ -1,18 +1,22 @@
 package org.example;
 
-import org.example.sort.BubbleSort;
-import org.example.sort.InsertionSort;
-import org.example.sort.SelectionSort;
-import org.example.sort.Sort;
+import org.example.sort.*;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
 
-        Integer[] sorted = new InsertionSort().sort(Sort.arr);
+        Integer[] sorted = new ShellSort().sort(Sort.arr);
         System.out.println("-------------------");
-        Arrays.stream(sorted).forEach(System.out::print);
+
+        String arrS = Arrays.stream(sorted)
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
+
+        System.out.println(arrS);
+//        Arrays.stream(sorted).forEach(System.out::print);
 
     }
 }
