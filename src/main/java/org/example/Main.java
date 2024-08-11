@@ -8,15 +8,9 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 
-        Integer[] sorted = new ShellSort().sort(Sort.arr);
-        System.out.println("-------------------");
+        DoSort ds = new DoSort();
+        ds.doSort(new ShellSort(), Sort.arr);
 
-        String arrS = Arrays.stream(sorted)
-                .map(String::valueOf)
-                .collect(Collectors.joining(", "));
-
-        System.out.println(arrS);
-//        Arrays.stream(sorted).forEach(System.out::print);
 
     }
 }

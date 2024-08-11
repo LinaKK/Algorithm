@@ -1,6 +1,7 @@
 package org.example.sort;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class BubbleSort implements Sort{
 
@@ -9,7 +10,7 @@ public class BubbleSort implements Sort{
 
         Arrays.stream(arr).forEach(System.out::print);
         System.out.println();
-        System.out.println("---------------------");
+        System.out.println("------------------------------");
 
         for(int i=arr.length-1; i>0; i--) {
 
@@ -20,8 +21,12 @@ public class BubbleSort implements Sort{
                     arr[j] = box;
                 }
             }
-            Arrays.stream(arr).forEach(System.out::print);
-            System.out.println();
+
+            String arrS = Arrays.stream(arr)
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(", "));
+
+            System.out.println(arrS);
         }
 
         return arr;

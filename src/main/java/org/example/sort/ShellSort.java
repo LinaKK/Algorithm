@@ -1,15 +1,12 @@
 package org.example.sort;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class ShellSort implements Sort{
 
     @Override
     public Integer[] sort(Integer[] arr) {
-        Arrays.stream(arr).forEach(System.out::print);
-        System.out.println();
-        System.out.println("--------------------");
-
         int h=1;
         while(h<arr.length){
             h *=3+1;
@@ -26,8 +23,11 @@ public class ShellSort implements Sort{
                 arr[j] = v;
             }
 
-            Arrays.stream(arr).forEach(System.out::print);
-            System.out.println();
+            String arrS = Arrays.stream(arr)
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(", "));
+
+            System.out.println(arrS);
         }
 
         return arr;

@@ -1,6 +1,7 @@
 package org.example.sort;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class SelectionSort implements Sort {
     int minIdx;
@@ -9,7 +10,7 @@ public class SelectionSort implements Sort {
 
         Arrays.stream(arr).forEach(System.out::print);
         System.out.println();
-        System.out.println("---------------------");
+        System.out.println("------------------------------");
 
         for(int i=0; i<arr.length-1; i++) {
             minIdx = i;
@@ -21,8 +22,12 @@ public class SelectionSort implements Sort {
             int min = arr[minIdx];
             arr[minIdx] = arr[i];
             arr[i] = min;
-            Arrays.stream(arr).forEach(System.out::print);
-            System.out.println();
+
+            String arrS = Arrays.stream(arr)
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(", "));
+
+            System.out.println(arrS);
         }
 
         return arr;

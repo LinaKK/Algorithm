@@ -1,14 +1,15 @@
 package org.example.sort;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
-public class InsertionSort {
+public class InsertionSort implements Sort{
 
     public Integer[] sort(Integer[] arr){
 
         Arrays.stream(arr).forEach(System.out::print);
         System.out.println();
-        System.out.println("-----------------------------");
+        System.out.println("------------------------------");
 
         for(int i=1; i<arr.length; i++){
             int v = arr[i];
@@ -21,8 +22,11 @@ public class InsertionSort {
 
             arr[j+1] = v;
 
-            Arrays.stream(arr).forEach(System.out::print);
-            System.out.println();
+            String arrS = Arrays.stream(arr)
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(", "));
+
+            System.out.println(arrS);
         }
 
 //        int v = 0;
