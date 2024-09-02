@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         DoSort ds = new DoSort();
-        ds.doSort(new ShellSort(), Sort.arr);
+        ds.doSort(new QuickSort(), Sort.arr);
 
 
     }
